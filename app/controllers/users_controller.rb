@@ -9,11 +9,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:notice] = 'User created successfully'
-      session[:user_id] = @user.id
-      redirect_to show_recommendations_user_path(@user)
+      log_in_user(@user)
+      redirect_to show_recommendations_user_path(@user), notice: 'User created successfully'
     else
-      flash[:alert] = 'User not created'
+      flash.now[:alert] = 'User not created'
       render :new, status: :unprocessable_entity
     end
   end
@@ -33,16 +32,19 @@ class UsersController < ApplicationController
       :birthdate,
       :gender,
       :email,
-      :password_digest,
+      :password,
       :password_confirmation
     )
   end
 
   def require_login
-    unless current_user
-      flash[:alert
-        ] = 'Please log in to view recommended offers.'
-      redirect_to new_user_session_path
-    end
+    return if current_user
+
+    flash[:alert] = 'Please log in to view recommended offers.'
+    redirect_to new_user_session_path
+  end
+
+  def log_in_user(user)
+    session[:user_id] = user.id
   end
 end

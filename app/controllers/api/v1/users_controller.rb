@@ -32,7 +32,7 @@ module Api
           :birthdate,
           :gender,
           :email,
-          :password_digest,
+          :password,
           :password_confirmation
         )
       end

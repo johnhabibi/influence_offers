@@ -11,7 +11,7 @@ const Signup = () => {
     birthdate: "",
     gender: "male",
     email: "",
-    password_digest: "",
+    password: "",
     password_confirmation: "",
   });
 
@@ -26,7 +26,6 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
     const csrfToken = document
       .querySelector('meta[name="csrf-token"]')
       .getAttribute("content");
@@ -82,8 +81,8 @@ const Signup = () => {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                name="password_digest"
-                value={formData.password_digest}
+                name="password"
+                value={formData.password}
                 onChange={handleInputChange}
                 placeholder="Enter your password"
               />
