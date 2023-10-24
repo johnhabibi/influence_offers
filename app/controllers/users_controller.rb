@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       :birthdate,
       :gender,
       :email,
-      :password,
+      :password_digest,
       :password_confirmation
     )
   end

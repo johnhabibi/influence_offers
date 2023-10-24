@@ -1,23 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Form from "react-bootstrap/Form";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { Container } from "react-bootstrap";
+import { Container, FormSelect } from "react-bootstrap";
 
 const Signup = () => {
+  const formRef = useRef(null);
   const [formData, setFormData] = useState({
     username: "",
     first_name: "",
     last_name: "",
-    birthdate: null,
-    gender: "",
+    birthdate: "",
+    gender: "male",
     email: "",
-    password: "",
+    password_digest: "",
     password_confirmation: "",
   });
 
-  const handleDateChange = (date) => {
-    setFormData({ ...formData, birthdate: date });
+  const handleGenderChange = (event) => {
+    setFormData({ ...formData, gender: event.target.value });
   };
 
   const handleInputChange = (e) => {
@@ -25,24 +24,23 @@ const Signup = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+    const csrfToken = document
+      .querySelector('meta[name="csrf-token"]')
+      .getAttribute("content");
     try {
-      const response = await fetch("/api/v1/users", {
+      await fetch("/api/v1/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "X-CSRF-Token": csrfToken,
         },
         body: JSON.stringify(formData),
       });
-
-      if (response.ok) {
-        // User registration was successful
-        // Redirect to a success page or perform other actions
-      } else {
-        const data = await response.json();
-        // Handle errors and display them to the user
-        console.error(data.errors);
-      }
+      // If the request is successful, you can optionally redirect to another page.
+      // window.location.href = "/success"; // Change the URL as needed.
     } catch (error) {
       console.error(error);
     }
@@ -50,7 +48,7 @@ const Signup = () => {
 
   return (
     <Container>
-      <Form>
+      <Form method="post" action="<%= api_v1_users_path %>" ref={formRef}>
         <div className="row">
           <div className="col-md-6">
             <Form.Group controlId="signupForm.username">
@@ -80,12 +78,12 @@ const Signup = () => {
 
         <div className="row">
           <div className="col-md-6">
-            <Form.Group controlId="signupForm.password">
+            <Form.Group controlId="signupForm.password_digest">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                name="password"
-                value={formData.password}
+                name="password_digest"
+                value={formData.password_digest}
                 onChange={handleInputChange}
                 placeholder="Enter your password"
               />
@@ -131,19 +129,38 @@ const Signup = () => {
             </Form.Group>
           </div>
         </div>
-
-        <Form.Group controlId="formDate">
-          <Form.Label>Select a Date:</Form.Label>
-          <DatePicker
-            selected={formData.birthdate} // Use formData.birthdate
-            onChange={handleDateChange}
-            dateFormat="MM/dd/yyyy"
-            placeholderText="Select a date"
-          />
-        </Form.Group>
-
-        {/* Add a submit button for form submission */}
-        <button type="submit" className="btn btn-primary">
+        <div className="row">
+          <div className="col-md-6">
+            <Form.Group controlId="formGender">
+              <Form.Label>Gender</Form.Label>
+              <FormSelect
+                name="gender" // This is correct
+                defaultValue={formData.gender}
+                onChange={handleGenderChange}
+              >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </FormSelect>
+            </Form.Group>
+          </div>
+          <div className="col-md-6">
+            <Form.Group controlId="formDate">
+              <Form.Label>Birthdate:</Form.Label>
+              <Form.Control
+                type="text"
+                name="birthdate"
+                value={formData.birthdate}
+                onChange={handleInputChange}
+                placeholder="MM/DD/YYYY"
+              />
+            </Form.Group>
+          </div>
+        </div>
+        <button
+          type="submit"
+          className="btn btn-primary"
+          onClick={handleSubmit}
+        >
           Submit
         </button>
       </Form>

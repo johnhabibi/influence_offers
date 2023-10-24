@@ -1156,7 +1156,7 @@
     picocolors "^1.0.0"
     tslib "^2.6.0"
 
-"@popperjs/core@^2.0.0", "@popperjs/core@^2.11.6", "@popperjs/core@^2.11.8":
+"@popperjs/core@^2.11.6", "@popperjs/core@^2.11.8":
   version "2.11.8"
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
@@ -2036,7 +2036,7 @@ ci-info@^3.2.0:
   resolved "https://registry.npmjs.org/ci-info/-/ci-info-3.9.0.tgz"
   integrity sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==
 
-classnames@^2.2.6, classnames@^2.3.2:
+classnames@^2.3.2:
   version "2.3.2"
   resolved "https://registry.npmjs.org/classnames/-/classnames-2.3.2.tgz"
   integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
@@ -4510,7 +4510,7 @@ prop-types-extra@^1.1.0:
     react-is "^16.3.2"
     warning "^4.0.0"
 
-prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.6.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -4604,30 +4604,13 @@ react-bootstrap@^2.9.0:
     uncontrollable "^7.2.1"
     warning "^4.0.3"
 
-react-datepicker@^4.21.0:
-  version "4.21.0"
-  resolved "https://registry.npmjs.org/react-datepicker/-/react-datepicker-4.21.0.tgz"
-  integrity sha512-z0DtuRrKMz9i7dcTusW29VacbM9pn08g1yw0cG+Y5GpodJDxSWv7zUMxl3IwKN9Ap/AMphiepvmT5P+iNCgEiA==
-  dependencies:
-    "@popperjs/core" "^2.11.8"
-    classnames "^2.2.6"
-    date-fns "^2.30.0"
-    prop-types "^15.7.2"
-    react-onclickoutside "^6.13.0"
-    react-popper "^2.3.0"
-
-"react-dom@^15.5.x || ^16.x || ^17.x || ^18.x", "react-dom@^16.8.0 || ^17 || ^18", "react-dom@^16.9.0 || ^17 || ^18", react-dom@^18.2.0, react-dom@>=16.14.0, react-dom@>=16.6.0:
+react-dom@^18.2.0, react-dom@>=16.14.0, react-dom@>=16.6.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
-
-react-fast-compare@^3.0.1:
-  version "3.2.2"
-  resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.2.tgz"
-  integrity sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==
 
 react-is@^16.13.1, react-is@^16.3.2:
   version "16.13.1"
@@ -4639,19 +4622,6 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-onclickoutside@^6.13.0:
-  version "6.13.0"
-  resolved "https://registry.npmjs.org/react-onclickoutside/-/react-onclickoutside-6.13.0.tgz"
-  integrity sha512-ty8So6tcUpIb+ZE+1HAhbLROvAIJYyJe/1vRrrcmW+jLsaM+/powDRqxzo6hSh9CuRZGSL1Q8mvcF5WRD93a0A==
-
-react-popper@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/react-popper/-/react-popper-2.3.0.tgz"
-  integrity sha512-e1hj8lL3uM+sgSR4Lxzn5h1GxBlpa4CQz0XLF8kx4MDrDRWY0Ena4c97PUeSX9i5W3UAfDP0z0FXCTQkoXUl3Q==
-  dependencies:
-    react-fast-compare "^3.0.1"
-    warning "^4.0.2"
-
 react-transition-group@^4.4.5:
   version "4.4.5"
   resolved "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz"
@@ -4662,7 +4632,7 @@ react-transition-group@^4.4.5:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-"react@^15.5.x || ^16.x || ^17.x || ^18.x", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0", "react@^16.9.0 || ^17 || ^18", react@^18.2.0, react@>=0.14.0, react@>=15.0.0, react@>=16.14.0, react@>=16.6.0, react@>=16.8.0:
+"react@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0", react@^18.2.0, react@>=0.14.0, react@>=15.0.0, react@>=16.14.0, react@>=16.6.0, react@>=16.8.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
@@ -5513,7 +5483,7 @@ vary@~1.1.2:
   resolved "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
-warning@^4.0.0, warning@^4.0.2, warning@^4.0.3:
+warning@^4.0.0, warning@^4.0.3:
   version "4.0.3"
   resolved "https://registry.npmjs.org/warning/-/warning-4.0.3.tgz"
   integrity sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==

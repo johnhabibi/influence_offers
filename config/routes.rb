@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  get 'main/index'
   root 'main#index'
 
-  resources :user_sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create] do
-    get 'show_recommendations', on: :member
+  # Define routes for user registration
+  get '/users/new', to: 'users#new'    # Displays the signup form
+  post '/users', to: 'users#create'     # Handles user creation
+
+  # Additional routes if needed
+  resources :users, only: [:show, :edit, :update, :destroy] do
+    # Define other user-related routes as needed
   end
 
-  namespace :api, defaults: { format: :json } do
+  namespace :api do
     namespace :v1 do
       resources :users, only: [:create]
     end

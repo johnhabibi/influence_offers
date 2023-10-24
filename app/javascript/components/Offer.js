@@ -1,11 +1,14 @@
 import React from "react";
+import Container from "react-bootstrap/Container";
 
 const Offers = () => {
   return (
-    <div>
-      <h1>Welcome to the Influence Offers!</h1>
-      <p>Explore the latest offers and deals here.</p>
-    </div>
+    <Container>
+      <div id="welcome">
+        <h1>Welcome to Influence Offers!</h1>
+        <p>Explore the latest offers and deals here.</p>
+      </div>
+    </Container>
   );
 };
 
