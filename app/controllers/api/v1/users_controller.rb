@@ -21,6 +21,21 @@ module Api
         end
       end
 
+      def show
+        @user = User.find(params[:id])
+        render json: @user
+      end
+
+      def user_data
+        # Fetch user data here and respond with it in JSON format
+        user = current_user # You may need to customize this based on your authentication method
+        if user
+          render json: user, status: :ok
+        else
+          render json: { error: 'User not found' }, status: :not_found
+        end
+      end
+
 
       private
 
