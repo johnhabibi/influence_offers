@@ -9,7 +9,7 @@ const Signup = () => {
     first_name: "",
     last_name: "",
     birthdate: "",
-    gender: "male",
+    gender: "Male",
     email: "",
     password: "",
     password_confirmation: "",
@@ -137,8 +137,8 @@ const Signup = () => {
                 defaultValue={formData.gender}
                 onChange={handleGenderChange}
               >
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
               </FormSelect>
             </Form.Group>
           </div>

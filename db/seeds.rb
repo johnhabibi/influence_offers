@@ -9,9 +9,8 @@ require 'faker'
 
   Offer.create(
     description: Faker::Marketing.buzzwords,
-    min_age:,
+    min_age: min_age,
     max_age: Faker::Number.between(from: min_age, to: 99),
     gender: Faker::Gender.binary_type
   )
 end
-

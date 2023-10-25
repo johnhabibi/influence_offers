@@ -17,8 +17,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       # API routes for user management
       resources :users, only: [:create]
+      resources :offers, only: [:index]
       get 'users/:id', to: 'users#show'
       get 'user_data', to: 'users#user_data'
+
     end
   end
 end
