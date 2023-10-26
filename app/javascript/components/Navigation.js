@@ -59,8 +59,12 @@ function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             {isAuthenticated ? (
-              // If the user is signed in, show the "Sign Out" option
-              <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
+              // If the user is signed in, show the "My Offers" and "Sign Out" options
+              <>
+                <Nav.Link href="/">Recommended Offers</Nav.Link>
+                <Nav.Link href="/users/show">My Offers</Nav.Link>
+                <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
+              </>
             ) : (
               // If the user is not signed in, show "Login" and "Signup" options
               <>

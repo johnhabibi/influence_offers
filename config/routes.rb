@@ -15,17 +15,21 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      # API routes for user management
-
       resources :users, only: [:create] do
-        post 'add_offer', on: :member
-        post 'reject_offer', on: :member
+        member do
+          post 'accept_offer'
+          post 'reject_offer'
+        end
+      end
+
+      scope 'user_offers' do
+        get 'accepted_offers', to: 'user_offers#accepted_offers'
+        get 'rejected_offers', to: 'user_offers#rejected_offers'
       end
 
       resources :offers, only: [:index]
       get 'users/:id', to: 'users#show'
       get 'user_data', to: 'users#user_data'
-
     end
   end
 end
