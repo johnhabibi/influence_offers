@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is based on Ruby on Rails with React Components on the frontend.
 
-Things you may want to cover:
+After running migrations run `rails db:seed` to populate the offers table.
 
-* Ruby version
+* Create a user
+* Visit the Recommended Offers page
+* Accept and Remove Offers at will
+* Visit My Offers page
 
-* System dependencies
+Noteworthy version information
+* Ruby version: 3.2.2
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Rails version: 7.1.1
