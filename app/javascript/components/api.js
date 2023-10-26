@@ -20,14 +20,11 @@ export const fetchUserData = async () => {
 };
 
 export const fetchOffers = async (userData) => {
-  const { birthdate, gender } = userData;
-
-  console.log("Birthdate:", birthdate);
-  console.log("Gender:", gender);
+  const { birthdate, gender, id } = userData;
 
   try {
     const response = await fetch(
-      `/api/v1/offers?birthdate=${birthdate}&gender=${gender}`,
+      `/api/v1/offers?birthdate=${birthdate}&gender=${gender}&user_id=${id}`,
       {
         method: "GET",
         headers: {
@@ -47,3 +44,4 @@ export const fetchOffers = async (userData) => {
     return [];
   }
 };
+

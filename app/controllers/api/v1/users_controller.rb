@@ -36,6 +36,32 @@ module Api
         end
       end
 
+      def accept_offer
+        user = current_user
+        offer = Offer.find(params[:offer_id])
+
+        user_offer = UserOffer.create(user: user, offer: offer, accepted: true)
+
+        if user_offer.persisted?
+          render json: { message: 'Offer accepted successfully' }
+        else
+          render json: { message: 'Failed to accept the offer' }, status: :unprocessable_entity
+        end
+      end
+
+      def reject_offer
+        user = current_user
+        offer = Offer.find(params[:offer_id])
+
+        user_offer = UserOffer.create(user: user, offer: offer, rejected: true)
+
+        if user_offer.persisted?
+          render json: { message: 'Offer rejected successfully' }
+        else
+          render json: { message: 'Failed to reject the offer' }, status: :unprocessable_entity
+        end
+      end
+
 
       private
 

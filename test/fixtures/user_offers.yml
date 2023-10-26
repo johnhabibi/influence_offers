@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  offer: one
+  accepted: false
+  rejected: false
+
+two:
+  user: two
+  offer: two
+  accepted: false
+  rejected: false

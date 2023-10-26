@@ -2,24 +2,25 @@
 
 class Api::V1::OffersController < ApplicationController
   def index
-    birthdate = Date.parse(params[:birthdate])
-    gender = params[:gender]
+    user = User.find(params[:user_id])
 
-    puts "User's birthdate: #{birthdate}, Gender: #{gender}" # Add this line for debugging
+    puts "User birthdate: #{user.birthdate}"
 
-    offers = Offer.where(
-      'min_age <= ? AND max_age >= ? AND (gender = ? OR gender = \'all\')',
-      calculate_age(birthdate),
-      calculate_age(birthdate),
-      gender
-    )
+    suggestions = Offer
+                  .where('min_age <= ? AND max_age >= ? AND (gender = ? OR gender = \'all\')', user.age, user.age, user.gender)
+                  .joins('LEFT JOIN user_offers ON offers.id = user_offers.offer_id AND user_offers.accepted IS NULL AND user_offers.rejected IS NULL')
+                  .where('user_offers.offer_id IS NULL')
+                  .where('user_offers.rejected IS NULL')
 
-    puts "Offers count: #{offers.count}" # Add this line for debugging
+    if params[:user_id]
+      user = User.find(params[:user_id])
+      accepted_offer_ids = user.accepted_offers.pluck(:id)
+      rejected_offer_ids = user.rejected_offers.pluck(:id)
+      suggestions = suggestions.where.not(id: accepted_offer_ids + rejected_offer_ids)
+    end
 
-    render json: offers
+    render json: suggestions
   end
-
-
 
   private
 
