@@ -11,7 +11,6 @@ module Api
 
       def create
         @user = User.new(user_params)
-        # Parse and format the birthdate
         @user.birthdate = Date.strptime(params[:birthdate], '%m/%d/%Y') if params[:birthdate].present?
 
         if @user.save
@@ -27,8 +26,7 @@ module Api
       end
 
       def user_data
-        # Fetch user data here and respond with it in JSON format
-        user = current_user # You may need to customize this based on your authentication method
+        user = current_user
         if user
           render json: user, status: :ok
         else

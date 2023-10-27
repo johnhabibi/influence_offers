@@ -5,7 +5,6 @@ import Container from "react-bootstrap/Container";
 import { fetchUserData } from "./api";
 
 function Navigation() {
-  // Use the useState hook to manage the user's authentication status and user data.
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState({}); // Store user data
 
@@ -23,7 +22,7 @@ function Navigation() {
     };
 
     fetchData();
-  }, []); // The empty dependency array ensures this runs once after the component mounts.
+  }, []);
 
   const handleSignOut = async (e) => {
     e.preventDefault();
@@ -40,14 +39,11 @@ function Navigation() {
       });
 
       if (response.ok) {
-        // Handle successful sign-out, e.g., redirect to the login page.
-        // You can also clear the user's authentication state.
+        window.location = "/";
       } else {
-        // Handle sign-out failure, e.g., show an error message.
       }
     } catch (error) {
       console.error(error);
-      // Handle network errors, e.g., show an error message.
     }
   };
 
@@ -59,14 +55,12 @@ function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             {isAuthenticated ? (
-              // If the user is signed in, show the "My Offers" and "Sign Out" options
               <>
                 <Nav.Link href="/">Recommended Offers</Nav.Link>
                 <Nav.Link href="/users/show">My Offers</Nav.Link>
                 <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
               </>
             ) : (
-              // If the user is not signed in, show "Login" and "Signup" options
               <>
                 <Nav.Link href="/user_sessions/new">Login</Nav.Link>
                 <Nav.Link href="/users/new">Signup</Nav.Link>

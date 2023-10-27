@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in_user(@user)
-      redirect_to show_recommendations_user_path(@user), notice: 'User created successfully'
+      redirect_to root_path(@user), notice: 'User created successfully'
     else
       flash.now[:alert] = 'User not created'
       render :new, status: :unprocessable_entity

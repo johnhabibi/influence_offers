@@ -16,9 +16,7 @@ class Api::V1::UserOffersController < ApplicationController
   private
 
   def authenticate_user
-    # Check if the user is not authenticated
-    unless current_user # You can use the appropriate method for your authentication system
-      # Redirect or handle unauthorized access as needed
+    unless current_user
       redirect_to root_path, alert: 'You must be logged in to perform this action'
     end
   end

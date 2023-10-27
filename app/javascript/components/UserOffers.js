@@ -8,14 +8,14 @@ const UserOffers = () => {
   useEffect(() => {
     fetch("/api/v1/user_offers/accepted_offers", {
       headers: {
-        Accept: "application/json", // Request JSON data
+        Accept: "application/json",
       },
     })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        return response.json(); // Parse the JSON response
+        return response.json();
       })
       .then((data) => {
         setAcceptedOffers(data);
@@ -25,14 +25,14 @@ const UserOffers = () => {
       });
     fetch("/api/v1/user_offers/rejected_offers", {
       headers: {
-        Accept: "application/json", // Request JSON data
+        Accept: "application/json",
       },
     })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        return response.json(); // Parse the JSON response
+        return response.json();
       })
       .then((data) => {
         setRejectedOffers(data);

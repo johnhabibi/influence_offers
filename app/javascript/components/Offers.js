@@ -18,7 +18,7 @@ const Offers = () => {
 
           const offersData = await fetchOffers(userData);
           setOffers(offersData);
-          setDisplayedOffers(offersData); // Initialize displayed offers
+          setDisplayedOffers(offersData);
         }
       } catch (error) {
         console.error(error);
@@ -37,7 +37,6 @@ const Offers = () => {
   };
 
   const handleAddOffer = (offerId) => {
-    // Make an API request to accept the offer
     fetch(`/api/v1/users/${user.id}/accept_offer`, {
       method: "POST",
       headers: {
@@ -59,7 +58,6 @@ const Offers = () => {
   };
 
   const handleRemoveOffer = (offerId) => {
-    // Make an API request to reject the offer
     fetch(`/api/v1/users/${user.id}/reject_offer`, {
       method: "POST",
       headers: {

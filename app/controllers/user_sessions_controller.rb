@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = 'Login successful'
-      redirect_to root_path # Redirect to the root page
+      redirect_to root_path
     else
       flash[:alert] = 'Login failed'
       redirect_to new_user_session_path
@@ -18,7 +18,7 @@ class UserSessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
-    redirect_to root_path, notice: 'You have been signed out'
+    head :ok
   end
 
 end

@@ -22,14 +22,11 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Here, you can perform validation. For example:
     if (user.username === "" || user.password === "") {
       setErrors(["Please fill in all fields"]);
       return;
     }
 
-    // You can send a POST request to your backend for login here.
-    // Example using the Fetch API:
     const csrfToken = document
       .querySelector('meta[name="csrf-token"]')
       .getAttribute("content");
@@ -39,21 +36,20 @@ function Login() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-CSRF-Token": csrfToken, // Include the CSRF token
+          "X-CSRF-Token": csrfToken,
         },
         body: JSON.stringify(user),
       });
 
       if (response.ok) {
-        // Redirect to the root page upon successful login
-        window.location.href = "/"; // You can change the URL as needed
+        window.location.href = "/";
       } else {
         const data = await response.json();
-        setErrors([data.error]); // Handle login errors from the server.
+        setErrors([data.error]);
       }
     } catch (error) {
       console.error(error);
-      setErrors(["An error occurred"]); // Handle network errors.
+      setErrors(["An error occurred"]);
     }
   };
 

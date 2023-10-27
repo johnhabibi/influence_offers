@@ -38,8 +38,8 @@ const Signup = () => {
         },
         body: JSON.stringify(formData),
       });
-      // If the request is successful, you can optionally redirect to another page.
-      // window.location.href = "/success"; // Change the URL as needed.
+      //
+      window.location.href = "/";
     } catch (error) {
       console.error(error);
     }
@@ -133,7 +133,7 @@ const Signup = () => {
             <Form.Group controlId="formGender">
               <Form.Label>Gender</Form.Label>
               <FormSelect
-                name="gender" // This is correct
+                name="gender"
                 defaultValue={formData.gender}
                 onChange={handleGenderChange}
               >
